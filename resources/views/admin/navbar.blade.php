@@ -6,6 +6,11 @@
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page"
+                        href="{{ url('/admin/dashboard') }}">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page"
                         href="{{ url('/add_category') }}">Category</a>
                 </li>
                 <li class="nav-item">

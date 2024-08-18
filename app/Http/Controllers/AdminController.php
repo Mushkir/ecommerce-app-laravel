@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Flasher\Prime\FlasherInterface;
 
 class AdminController extends Controller
 {
@@ -27,9 +29,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $category = new Category;
 
-        $request->category;
+        $validatedData = $request->validate([
+            'category' => 'required|min:3'
+        ]);
+
+        $category->category_name = $validatedData['category'];
+
+        $category->save();
+
+        flash()->success('New category has been added successfully.');
+
+        return redirect()->back();
     }
 
     /**

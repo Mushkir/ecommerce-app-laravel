@@ -22,3 +22,5 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 
 Route::get('/add_category', [AdminController::class, 'viewCategory']);
+
+Route::post('/store', [AdminController::class, 'store']);
