@@ -27,7 +27,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $request->category;
     }
 
     /**
@@ -60,5 +62,10 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function viewCategory()
+    {
+        return view('admin.view_category');
     }
 }

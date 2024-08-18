@@ -20,3 +20,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
+
+Route::get('/add_category', [AdminController::class, 'viewCategory']);
