@@ -78,6 +78,8 @@ class AdminController extends Controller
 
     public function viewCategory()
     {
-        return view('admin.view_category');
+        $categories = Category::orderBy('category_name', 'asc')->get();
+
+        return view('admin.view_category', compact('categories'));
     }
 }
