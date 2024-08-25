@@ -41,7 +41,8 @@
                                 <td>{{ $product->qty }}</td>
                                 <td> <a href="{{ url('/products/edit_product', $product->id) }}"
                                         class="btn btn-success">Edit</a> </td>
-                                <td> <a href="{{ url('', $product->id) }}" class="btn btn-danger">Delete</a> </td>
+                                <td> <a href="{{ url('/products/delete_product', $product->id) }}"
+                                        class="btn btn-danger">Delete</a> </td>
                             </tr>
                         @endforeach
                     </tbody>
