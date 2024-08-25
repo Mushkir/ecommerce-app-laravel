@@ -83,7 +83,13 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        flash()->success('Category has been deleted successfully.');
+
+        return redirect()->back();
     }
 
     public function viewCategory()

@@ -29,3 +29,5 @@ Route::post('/store', [AdminController::class, 'store'])->middleware(['auth', 'a
 Route::get('/show/{id}', [AdminController::class, 'show'])->middleware(['auth', 'admin']);
 
 Route::post('update/{id}', [AdminController::class, 'update'])->middleware(['auth', 'admin']);
+
+Route::get('/destroy/{id}', [AdminController::class, 'destroy'])->middleware(['auth', 'admin']);
