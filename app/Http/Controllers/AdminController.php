@@ -67,7 +67,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categories = Category::find($id);
+
+        $categories->category_name = $request->category;
+
+        $categories->save();
+
+        flash()->success('Category has been updated successfully.');
+
+        return redirect('/add_category');
     }
 
     /**

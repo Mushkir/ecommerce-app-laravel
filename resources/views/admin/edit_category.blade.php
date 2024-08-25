@@ -2,7 +2,7 @@
 @section('title', 'Edit category page')
 @section('main-content')
 
-    <form action="" class="input-group d-block w-50 p-5 mx-auto" method="POST">
+    <form action="{{ url('/update', $categories->id) }}" class="input-group d-block w-50 p-5 mx-auto" method="POST">
         @csrf
         <h3 class=" text-center mb-4"> Edit category detail </h3>
 
