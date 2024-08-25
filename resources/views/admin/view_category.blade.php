@@ -25,5 +25,27 @@
         <div>
             <button type="submit" class="btn btn-success">Add new category</button>
         </div>
+
+
     </form>
+
+    {{-- Table --}}
+    <div class="mt-5 p-5">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <th class="text-center">S. No</th>
+                <th class="text-center">Category Name</th>
+                <th class="text-center">Edit</th>
+                <th class="text-center">Delete</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">###</td>
+                    <td class="text-center">###</td>
+                    <td class="text-center"> <a href="#" class="btn btn-success">Edit</a> </td>
+                    <td class="text-center"> <a href="#" class="btn btn-danger">Delete</a> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 @endsection
