@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -24,15 +26,40 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.add_product');
+        $categories = Category::orderBy('category_name', 'asc')->get();
+
+        return view('admin.product.add_product', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product;
+
+        $product->title = $request->product_name;
+        $product->desc = $request->description;
+        $product->price = $request->price;
+        $product->qty = $request->quantity;
+        $product->category = $request->category;
+
+        $image = $request->image;
+
+        if ($image) {
+
+            $imageName = time() . '.' . $request->image->extension();
+
+            $request->image->move(public_path('products'), $imageName);
+
+            $product->image = $imageName;
+        }
+
+        $product->save();
+
+        flash()->success('New product has been added successfully.');
+
+        return redirect()->back();
     }
 
     /**
