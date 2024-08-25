@@ -14,11 +14,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $no = 1;
+
+        $products = Product::paginate(5);
 
         $numberOfProducts = Product::all()->count();
 
-        return view('admin.product.index', compact('products', 'numberOfProducts'));
+        return view('admin.product.index', compact('products', 'numberOfProducts', 'no'));
     }
 
     /**
@@ -50,7 +52,7 @@ class ProductController extends Controller
 
             $imageName = time() . '.' . $request->image->extension();
 
-            $request->image->move(public_path('products'), $imageName);
+            $request->image->move(public_path('product'), $imageName);
 
             $product->image = $imageName;
         }

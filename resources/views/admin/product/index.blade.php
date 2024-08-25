@@ -3,8 +3,6 @@
 @section('main-content')
 
     <div class="page-content p-4">
-        {{-- @include('admin.dashboard_content_admin') --}}
-
         <div class="d-flex align-items-center mt-4 justify-content-between px-5">
             <h1 class="text-center text-success">All Products</h1>
 
@@ -15,7 +13,7 @@
             <h3 class="text-center text-danger mt-5">Currently no products available...</h3>
         @else
             <div class=" d-flex justify-content-center align-items-center mb-5" style="margin-top: 50px">
-                {{-- {{ $products }} --}}
+
                 <table class="table table-bordered text-center">
                     <thead class="table-dark">
                         <tr>
@@ -32,22 +30,25 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>S. No</td>
-                            <td>Product Name</td>
-                            <td>Description</td>
-                            <td>Image</td>
-                            <td>Price</td>
-                            <td>Category</td>
-                            <td>Quantity</td>
-                            <td> <a href="#" class="btn btn-success">Edit</a> </td>
-                            <td> <a href="#" class="btn btn-danger">Delete</a> </td>
-                        </tr>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>#{{ $no++ }}</td>
+                                <td>{{ $product->title }}</td>
+                                <td>{{ Str::limit($product->desc, $limit = 50, '...') }}</td>
+                                <td><img class="w-50" src="{{ asset('product/' . $product->image) }}" alt=""></td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->category }}</td>
+                                <td>{{ $product->qty }}</td>
+                                <td> <a href="{{ url('', $product->id) }}" class="btn btn-success">Edit</a> </td>
+                                <td> <a href="{{ url('', $product->id) }}" class="btn btn-danger">Delete</a> </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-        @endif
 
+            {{ $products->links() }}
+        @endif
     </div>
 
 @endsection

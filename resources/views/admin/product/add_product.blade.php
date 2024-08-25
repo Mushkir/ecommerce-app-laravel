@@ -71,6 +71,7 @@
 
             <div>
                 <input class=" btn btn-success" type="submit" value="Add Product">
+                <a href="{{ url('/products') }}" class="btn btn-danger">Back to product page</a>
             </div>
         </form>
     </div>
