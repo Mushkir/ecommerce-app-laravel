@@ -44,4 +44,6 @@ Route::middleware(['auth', 'admin'])->prefix('products')->group(function () {
     Route::get('/add_product', [ProductController::class, 'create']);
 
     Route::post('/store', [ProductController::class, 'store']);
+
+    Route::get('edit_product/{id}', [ProductController::class, 'edit']);
 });
