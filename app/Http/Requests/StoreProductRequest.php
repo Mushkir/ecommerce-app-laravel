@@ -23,8 +23,8 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'product_name' => 'required|string|min:3|max:50',
-            'decscription' => 'required|string',
-            'image' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'required',
             'price' => 'required|string',
             'category' => 'required',
             'quantity' => 'required|string'
@@ -38,8 +38,9 @@ class StoreProductRequest extends FormRequest
             'product_name.string' => 'Product name must be text value.',
             'product_name.min' => 'Product name must be at least 03 characters long.',
             'product_name.max' => 'Product name must must not exceed 255 characters.',
-            'decscription.required' => 'This field can not be empty.',
-            'decscription.string' => 'decscriptionription must be text value.',
+            'description.required' => 'This field can not be empty.',
+            'description.string' => 'description must be text value.',
+            'image,required' => 'This field can not be empty.',
             'price.required' => 'This field can not be empty.',
             'price.string' => 'Price must be text value.',
             'category.required' => 'This field can not be empty.',
