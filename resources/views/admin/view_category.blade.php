@@ -39,12 +39,11 @@
                 <th class="text-center">Delete</th>
             </thead>
             <tbody>
-                {{ $no = 1 }}
                 @foreach ($categories as $category)
                     <tr>
-                        <td class="text-center">{{ $no++ }}</td>
+                        <td class="text-center">#{{ $no++ }}</td>
                         <td class="text-center">{{ $category->category_name }}</td>
-                        <td class="text-center"> <a href="{{ url('/edit_category', $category->id) }}"
+                        <td class="text-center"> <a href="{{ url('/show', $category->id) }}"
                                 class="btn btn-success">Edit</a>
                         </td>
                         <td class="text-center"> <a href="{{ url('/destroy', $category->id) }}"

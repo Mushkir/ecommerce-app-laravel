@@ -24,3 +24,5 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->middleware(['
 Route::get('/add_category', [AdminController::class, 'viewCategory'])->middleware(['auth', 'admin']);
 
 Route::post('/store', [AdminController::class, 'store'])->middleware(['auth', 'admin']);
+
+Route::get('/show/{id}', [AdminController::class, 'show'])->middleware(['auth', 'admin']);

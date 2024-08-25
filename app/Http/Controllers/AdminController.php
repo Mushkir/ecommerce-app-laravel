@@ -49,7 +49,9 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categories = Category::find($id);
+
+        return view('admin.edit_category', compact('categories'));
     }
 
     /**
@@ -78,8 +80,10 @@ class AdminController extends Controller
 
     public function viewCategory()
     {
+        $no = 1;
+
         $categories = Category::orderBy('category_name', 'asc')->get();
 
-        return view('admin.view_category', compact('categories'));
+        return view('admin.view_category', compact('categories', 'no'));
     }
 }
