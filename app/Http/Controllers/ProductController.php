@@ -79,7 +79,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('admin.product.view_product', compact('product'));
+        $categories = Category::orderBy('category_name', 'asc')->get();
+
+        return view('admin.product.view_product', compact('product', 'categories'));
     }
 
     /**
