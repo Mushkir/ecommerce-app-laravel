@@ -5,7 +5,7 @@
     <div class="w-75 mx-auto mb-5">
 
         <h3 class="text-success text-center mt-5">Edit product</h3>
-        <form action="" enctype="multipart/form-data" method="post">
+        <form action="{{ url('/products/update_product', $product->id) }}" enctype="multipart/form-data" method="post">
             @csrf
 
             <div class="mb-3">
