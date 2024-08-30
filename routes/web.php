@@ -50,4 +50,6 @@ Route::middleware(['auth', 'admin'])->prefix('products')->group(function () {
     Route::post('/update_product/{id}', [ProductController::class, 'update']);
 
     Route::get('/delete_product/{id}', [ProductController::class, 'destroy']);
+
+    Route::get('/search_product', [ProductController::class, 'search_product']);
 });

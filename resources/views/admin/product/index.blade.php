@@ -3,6 +3,17 @@
 @section('main-content')
 
     <div class="page-content p-4">
+
+        <form action="{{ url('/products/search_product') }}" class="d-flex gap-3 col-md-12" method="GET">
+            @csrf
+            <div class="col-md-11">
+                <input type="search" name="search" class="form-control" placeholder="Search items...">
+            </div>
+            <div class="col-md-1">
+                <input type="submit" value="Search" class="btn btn-success">
+            </div>
+        </form>
+
         <div class="d-flex align-items-center mt-4 justify-content-between px-5">
             <h1 class="text-center text-success">All Products</h1>
 
@@ -35,7 +46,8 @@
                                 <td>#{{ $no++ }}</td>
                                 <td>{{ $product->title }}</td>
                                 <td>{{ Str::limit($product->desc, $limit = 50, '...') }}</td>
-                                <td><img class="w-50" src="{{ asset('product/' . $product->image) }}" alt=""></td>
+                                <td><img class="w-50" src="{{ asset('product/' . $product->image) }}" alt="">
+                                </td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->category }}</td>
                                 <td>{{ $product->qty }}</td>
@@ -51,6 +63,7 @@
 
             {{ $products->links() }}
         @endif
+
     </div>
 
 @endsection

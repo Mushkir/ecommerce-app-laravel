@@ -131,4 +131,17 @@ class ProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function search_product(Request $request)
+    {
+        $search = $request->search;
+
+        $no = 1;
+
+        $numberOfProducts = Product::where('title', 'LIKE', '%' . $search . '%')->count();
+
+        $products = Product::where('title', 'LIKE', '%' . $search . '%')->paginate(5);
+
+        return view('admin.product.index', compact('products', 'numberOfProducts', 'no'));
+    }
 }
