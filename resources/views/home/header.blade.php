@@ -35,20 +35,30 @@
                 </li>
             </ul>
             <div class="user_option">
-                <a href="{{ url('/login') }}">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>
-                        Login
-                    </span>
-                </a>
+                @if (Route::has('login'))
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-                {{-- Register --}}
-                <a href="{{ url('/register') }}">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>
-                        Register
-                    </span>
-                </a>
+                            <button class="btn btn-danger">Logout</button>
+                        </form>
+                    @else
+                        <a href="{{ url('/login') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>
+                                Login
+                            </span>
+                        </a>
+
+                        {{-- Register --}}
+                        <a href="{{ url('/register') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>
+                                Register
+                            </span>
+                        </a>
+                    @endauth
+                @endif
 
                 <a href="">
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -58,6 +68,7 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
+
             </div>
         </div>
     </nav>
