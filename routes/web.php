@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -53,3 +54,5 @@ Route::middleware(['auth', 'admin'])->prefix('products')->group(function () {
 });
 
 Route::get('/view_product_detail/{id}', [ProductController::class, 'show']);
+
+Route::get('/add_to_cart/{id}', [CartController::class, ''])->middleware(['auth', 'verified']);

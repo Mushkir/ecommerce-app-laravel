@@ -10,7 +10,7 @@
             @foreach ($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="box">
-                        <a href="{{ url('/view_product_detail', $product->id) }}">
+                        <div>
                             <div class="img-box">
                                 <img src="{{ asset('product/' . $product->image) }}" alt="">
                             </div>
@@ -30,7 +30,16 @@
                                     New
                                 </span>
                             </div>
-                        </a>
+
+                            <div class="d-flex justify-content-between my-3">
+                                <a class="btn btn-success text-light"
+                                    href="{{ url('/view_product_detail', $product->id) }}">View
+                                    detail</a>
+
+                                <a href="{{ url('/add_to_cart', $product->id) }}" class="btn btn-primary text-light">Add
+                                    to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach
