@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shop.html">
@@ -60,15 +60,16 @@
                     @endauth
                 @endif
 
-                <a href="">
-                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                </a>
-                <form class="form-inline ">
-                    <button class="btn nav_search-btn" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </form>
-
+                <div class="ml-5 d-flex ">
+                    <a href="">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </a>
+                    <form class="form-inline ">
+                        <button class="btn nav_search-btn" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>=
             </div>
         </div>
     </nav>
