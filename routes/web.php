@@ -51,3 +51,5 @@ Route::middleware(['auth', 'admin'])->prefix('products')->group(function () {
 
     Route::get('/search_product', [ProductController::class, 'search_product']);
 });
+
+Route::get('/view_product_detail/{id}', [ProductController::class, 'show']);

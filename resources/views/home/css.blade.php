@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('home/images/favicon.png') }}" type="image/x-icon">
 
     <title>
-        Giftos
+        @yield('title')
     </title>
 
     <!-- slider stylesheet -->
