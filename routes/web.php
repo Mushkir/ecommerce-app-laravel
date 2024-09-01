@@ -56,3 +56,5 @@ Route::middleware(['auth', 'admin'])->prefix('products')->group(function () {
 Route::get('/view_product_detail/{id}', [ProductController::class, 'show']);
 
 Route::get('/add_to_cart/{id}', [CartController::class, 'store'])->middleware(['auth', 'verified']);
+
+Route::get('/view_cart', [CartController::class, 'index'])->middleware(['auth', 'verified']);

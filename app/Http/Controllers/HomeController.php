@@ -20,7 +20,11 @@ class HomeController extends Controller
 
         $products = Product::all();
 
-        return view('index', compact('products'));
+        $cartControllerObj = new CartController();
+
+        $count = $cartControllerObj->countCartItems();
+
+        return view('index', compact('products', 'count'));
     }
 
     /**

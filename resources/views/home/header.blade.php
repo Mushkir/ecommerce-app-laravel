@@ -61,8 +61,14 @@
                 @endif
 
                 <div class="ml-5 d-flex ">
-                    <a href="">
-                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <a href="{{ url('view_cart') }}">
+                        <i class="fa fa-shopping-bag" aria-hidden="true">
+                            @if ($count > 0)
+                                {{ $count }}
+                            @else
+                                {{ '' }}
+                            @endif
+                        </i>
                     </a>
                     <form class="form-inline ">
                         <button class="btn nav_search-btn" type="submit">

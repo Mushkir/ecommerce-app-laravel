@@ -8,12 +8,25 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+    public function countCartItems()
+    {
+
+        $userId = Auth::id();
+
+        $numberOfCartItems = Cart::where('user_id', $userId)->count();
+
+        return $numberOfCartItems;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $count = $this->countCartItems();
+
+        return view('home.view_cart_items', compact('count'));
     }
 
     /**
