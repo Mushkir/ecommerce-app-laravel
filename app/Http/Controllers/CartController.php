@@ -24,9 +24,13 @@ class CartController extends Controller
      */
     public function index()
     {
+        $no = 1;
+        $loggedInUserId = Auth::id();
+        $cartItems = Cart::where('user_id', $loggedInUserId)->get();
+
         $count = $this->countCartItems();
 
-        return view('home.view_cart_items', compact('count'));
+        return view('home.view_cart_items', compact('count', 'cartItems', 'no'));
     }
 
     /**
