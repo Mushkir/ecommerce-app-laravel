@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -27,7 +29,23 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //    Steps:
+        //      1. Get the Product id from $request
+        $productId = $request->route('id');
+
+        //      2. Get the currently loggedin user's id.
+        $userId = Auth::id();
+
+        //      3. Save in DB.
+        $cart = new Cart;
+        $cart->product_id = $productId;
+        $cart->user_id = $userId;
+
+        $cart->save();
+
+        flash()->success('Item has been added in your cart successfully.');
+
+        return redirect()->back();
     }
 
     /**
