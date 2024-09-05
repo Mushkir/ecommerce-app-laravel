@@ -9,20 +9,47 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+
+    public function countTotalOrder()
+    {
+
+        $userId = Auth::id();
+
+        $totalOrders = Order::where('user_id', $userId)->count();
+
+        return $totalOrders;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $no = 1;
+
+        $cart = new CartController();
+
+        $count = $cart->countCartItems();
+
+        $numberOfOrders = $this->countTotalOrder();
+
+        $loggedInUserId = Auth::id();
+
+        $orderedItems = Order::where('user_id', $loggedInUserId)->get();
+
+        return view('home.orders.index', compact('count', 'numberOfOrders', 'orderedItems', 'no'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function showAll()
     {
-        //
+        $no = 1;
+
+        $allOrderItem = Order::all();
+
+        return view('admin.view_order', compact('no', 'allOrderItem'));
     }
 
     /**

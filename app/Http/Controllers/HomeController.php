@@ -17,14 +17,17 @@ class HomeController extends Controller
         1. Fetch all products data from DB.
         2. Return to Index view
         */
-
         $products = Product::all();
 
         $cartControllerObj = new CartController();
 
         $count = $cartControllerObj->countCartItems();
 
-        return view('index', compact('products', 'count'));
+        $order = new OrderController();
+
+        $numberOfOrders = $order->countTotalOrder();
+
+        return view('index', compact('products', 'count', 'numberOfOrders'));
     }
 
     /**

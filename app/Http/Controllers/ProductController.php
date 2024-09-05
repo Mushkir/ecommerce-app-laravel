@@ -73,9 +73,13 @@ class ProductController extends Controller
 
         $cartObj = new CartController();
 
+        $order = new OrderController();
+
+        $numberOfOrders = $order->countTotalOrder();
+
         $count = $cartObj->countCartItems();
 
-        return view('home.view_product_detail', compact('product', 'count'));
+        return view('home.view_product_detail', compact('product', 'count', 'numberOfOrders'));
     }
 
     /**

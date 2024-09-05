@@ -42,25 +42,36 @@
 
                             <button class="btn btn-danger">Logout</button>
                         </form>
-                    @else
-                        <a href="{{ url('/login') }}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                                Login
-                            </span>
-                        </a>
 
-                        {{-- Register --}}
-                        <a href="{{ url('/register') }}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                                Register
-                            </span>
-                        </a>
-                    @endauth
+                        <div class="ml-3 d-flex ">
+                            <a href="{{ url('/view_my_orders') }}">
+                                My Orders <sup>
+                                    @if ($numberOfOrders > 0)
+                                        {{ $numberOfOrders }}
+                                    @else
+                                        {{ '' }}
+                                    @endif
+                                </sup>
+                            </a>
+                        @else
+                            <a href="{{ url('/login') }}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                    Login
+                                </span>
+                            </a>
+
+                            {{-- Register --}}
+                            <a href="{{ url('/register') }}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                    Register
+                                </span>
+                            </a>
+                        @endauth
                 @endif
 
-                <div class="ml-5 d-flex ">
+                <div class="ml-2 d-flex ">
                     <a href="{{ url('view_cart') }}">
                         <i class="fa fa-shopping-bag" aria-hidden="true">
                             @if ($count > 0)

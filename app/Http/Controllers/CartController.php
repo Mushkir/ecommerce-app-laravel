@@ -29,8 +29,10 @@ class CartController extends Controller
         $cartItems = Cart::where('user_id', $loggedInUserId)->get();
 
         $count = $this->countCartItems();
+        $order = new OrderController();
+        $numberOfOrders = $order->countTotalOrder();
 
-        return view('home.view_cart_items', compact('count', 'cartItems', 'no'));
+        return view('home.view_cart_items', compact('count', 'cartItems', 'no', 'numberOfOrders'));
     }
 
     /**

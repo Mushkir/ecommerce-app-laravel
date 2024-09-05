@@ -63,3 +63,7 @@ Route::get('/view_cart', [CartController::class, 'index'])->middleware(['auth', 
 Route::get('/remove_cart_item/{id}', [CartController::class, 'destroy'])->middleware(['auth', 'verified']);
 
 Route::post('/confirm_order', [OrderController::class, 'store'])->middleware(['auth', 'verified']);
+
+Route::get('/view_my_orders', [OrderController::class, 'index'])->middleware(['auth', 'verified']);
+
+Route::get('/orders', [OrderController::class, 'showAll'])->middleware(['auth', 'admin']);
