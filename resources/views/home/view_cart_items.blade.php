@@ -36,7 +36,7 @@
 
         {{-- Customer detail section --}}
         <div class="w-50 mx-auto mt-5">
-            <form action="" method="POSTsss">
+            <form action="{{ url('/confirm_order') }}" method="POST">
                 <div class="form-group mb-4">
                     <label for="name" class="">Receiver's name:</label>
                     <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}" />
