@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\Admin;
@@ -60,3 +61,5 @@ Route::get('/add_to_cart/{id}', [CartController::class, 'store'])->middleware(['
 Route::get('/view_cart', [CartController::class, 'index'])->middleware(['auth', 'verified']);
 
 Route::get('/remove_cart_item/{id}', [CartController::class, 'destroy'])->middleware(['auth', 'verified']);
+
+Route::post('/confirm_order', [OrderController::class, 'store'])->middleware(['auth', 'verified']);

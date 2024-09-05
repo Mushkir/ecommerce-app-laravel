@@ -71,7 +71,11 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('home.view_product_detail', compact('product'));
+        $cartObj = new CartController();
+
+        $count = $cartObj->countCartItems();
+
+        return view('home.view_product_detail', compact('product', 'count'));
     }
 
     /**
