@@ -67,3 +67,7 @@ Route::post('/confirm_order', [OrderController::class, 'store'])->middleware(['a
 Route::get('/view_my_orders', [OrderController::class, 'index'])->middleware(['auth', 'verified']);
 
 Route::get('/orders', [OrderController::class, 'showAll'])->middleware(['auth', 'admin']);
+
+Route::get('/change_status_otw/{id}', [OrderController::class, 'changeStatusOTW'])->middleware(['auth', 'admin']);
+
+Route::get('/change_status_delivered/{id}', [OrderController::class, 'changeStatusDelivered'])->middleware(['auth', 'admin']);

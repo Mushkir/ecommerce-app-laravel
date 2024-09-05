@@ -37,12 +37,17 @@
                         <td>
                             @if ($orderItems->status == 'in progress')
                                 <span class="badge bg-danger">In Progress</span>
+                            @elseif ($orderItems->status == 'otw')
+                                <span class="badge bg-primary">On The Way</span>
+                            @else
+                                <span class="badge bg-success">Delivered</span>
                             @endif
                         </td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <a href="#" class="btn btn-danger">OTW</a>
-                                <a href="#" class="btn btn-success">Delivered</a>
+                                <a href="{{ url('/change_status_otw', $orderItems->id) }}" class="btn btn-danger">OTW</a>
+                                <a href="{{ url('/change_status_delivered', $orderItems->id) }}"
+                                    class="btn btn-success">Delivered</a>
                             </div>
                         </td>
                         <td>

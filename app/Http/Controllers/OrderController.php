@@ -123,4 +123,30 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function changeStatusOTW($id)
+    {
+        $selectedOrderedItem = Order::find($id);
+
+        $selectedOrderedItem->status = "otw";
+
+        $selectedOrderedItem->save();
+
+        flash()->success('Order status has been changed.');
+
+        return redirect()->back();
+    }
+
+    public function changeStatusDelivered($id)
+    {
+        $selectedOrderedItem = Order::find($id);
+
+        $selectedOrderedItem->status = "del";
+
+        $selectedOrderedItem->save();
+
+        flash()->success('Order status has been changed as delivered.');
+
+        return redirect()->back();
+    }
 }
