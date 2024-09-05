@@ -94,6 +94,12 @@ class CartController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cartItem = Cart::find($id);
+
+        $cartItem->delete();
+
+        flash()->success('Item has been removed from the cart.');
+
+        return redirect()->back();
     }
 }

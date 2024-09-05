@@ -58,3 +58,5 @@ Route::get('/view_product_detail/{id}', [ProductController::class, 'show']);
 Route::get('/add_to_cart/{id}', [CartController::class, 'store'])->middleware(['auth', 'verified']);
 
 Route::get('/view_cart', [CartController::class, 'index'])->middleware(['auth', 'verified']);
+
+Route::get('/remove_cart_item/{id}', [CartController::class, 'destroy'])->middleware(['auth', 'verified']);
